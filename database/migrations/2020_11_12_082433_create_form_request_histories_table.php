@@ -16,8 +16,8 @@ class CreateFormRequestHistoriesTable extends Migration
         Schema::create('form_request_histories', function (Blueprint $table) {
             $table->id();
             $table->enum("status", ['created', 'accepted', 'returned','in_progress', 'pending', 'canceled', 'closed', 'done']);
-            $table->text("reason")->nullable();
-            $table->text("document_attached")->nullable();
+            $table->longText("note")->nullable();
+            $table->string("document_attached")->nullable();
             $table->unsignedBigInteger("created_by");
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

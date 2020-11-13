@@ -17,13 +17,37 @@ class UsersTableSeeder extends Seeder
         if (User::count() == 0) {
             $role = Role::where('name', 'admin')->firstOrFail();
 
-            User::create([
-                'name'           => 'Bertho',
-                'email'          => 'berthojoris@gmail.com',
-                'password'       => bcrypt('malaquena'),
-                'remember_token' => Str::random(60),
-                'role_id'        => $role->id,
-            ]);
+            $data = [
+                [
+                    'name'           => 'Bertho',
+                    'email'          => 'berthojoris@gmail.com',
+                    'password'       => bcrypt('malaquena'),
+                    'remember_token' => Str::random(60),
+                    'role_id'        => $role->id,
+                ],
+                [
+                    'name'           => 'Tania',
+                    'email'          => 'tania@gmail.com',
+                    'password'       => bcrypt('malaquena'),
+                    'remember_token' => Str::random(60),
+                    'role_id'        => $role->id,
+                ],
+                [
+                    'name'           => 'Bagus',
+                    'email'          => 'bagus@gmail.com',
+                    'password'       => bcrypt('malaquena'),
+                    'remember_token' => Str::random(60),
+                    'role_id'        => $role->id,
+                ],
+                [
+                    'name'           => 'Brand',
+                    'email'          => 'brand@gmail.com',
+                    'password'       => bcrypt('malaquena'),
+                    'remember_token' => Str::random(60),
+                    'role_id'        => $role->id,
+                ]
+            ];
+            User::create($data);
         }
     }
 }

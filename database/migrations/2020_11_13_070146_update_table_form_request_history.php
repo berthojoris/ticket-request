@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotificationsTable extends Migration
+class UpdateTableFormRequestHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
-            $table->id();
-            $table->string("message");
-            $table->timestamps();
+        Schema::table('form_request_histories', function($table) {
+            $table->unsignedBigInteger("form_request_id")->after('id');
+            $table->foreign('form_request_id')
+                ->references('id')
+                ->on('form_requests');
         });
     }
 
@@ -27,6 +28,6 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        //
     }
 }

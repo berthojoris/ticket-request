@@ -39,6 +39,7 @@ class CreateFormRequestsTable extends Migration
             $table->foreign('requested_id')->references('id')->on('users');
             $table->unsignedBigInteger("received_id");
             $table->foreign('received_id')->references('id')->on('users');
+            $table->enum("status", ["open", "closed"])->default("open");
             $table->timestamps();
         });
     }

@@ -24,4 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/close-ticket/{id}', 'FormRequestController@closeTicket')->name('voyager.closeticket');
 });

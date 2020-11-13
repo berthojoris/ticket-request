@@ -1,0 +1,22 @@
+https://github.com/dwijitsolutions/laraadmin
+https://laravel-notification-channels.com/webpush/#installation
+https://github.com/the-control-group/voyager
+https://www.larashout.com/how-to-use-laravel-model-observers
+https://voyager-docs.devdojo.com/
+https://dev.to/fractalbit/change-the-height-of-the-rich-textbox-tinymce-in-laravel-voyager-1igd
+https://voyager-cheatsheet.ulties.com/
+https://marouanezizah.com/laravel-voyager-how-to-add-custom-action
+
+php artisan voyager:install --with-dummy
+
+php artisan voyager:admin berthojoris@gmail.com --create
+
+Carbon::createFromFormat("d/m/Y", $formRequest->campaign_period_start)->format('Y-m-d')
+
+
+
+@extends('voyager::master')
+
+@section('page_title')
+
+@endsection

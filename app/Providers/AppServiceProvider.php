@@ -2,7 +2,15 @@
 
 namespace App\Providers;
 
+use App\Brand;
+use App\FormRequest;
+use App\FormRequestHistory;
+use App\Actions\CloseTicketBtn;
+use App\Observers\BrandObserver;
+use TCG\Voyager\Facades\Voyager;
+use App\Observers\FormRequestObserver;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\FormRequestHistoryObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Brand::observe(BrandObserver::class);
+        FormRequest::observe(FormRequestObserver::class);
+        FormRequestHistory::observe(FormRequestHistoryObserver::class);
+        Voyager::addAction(CloseTicketBtn::class);
     }
 }
