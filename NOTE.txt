@@ -20,3 +20,13 @@ Carbon::createFromFormat("d/m/Y", $formRequest->campaign_period_start)->format('
 @section('page_title')
 
 @endsection
+
+{
+    "validation": {
+        "rule": [
+            "required"
+        ]
+    }
+}
+
+"scope": "excludeAdmin"

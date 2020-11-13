@@ -34,6 +34,6 @@ class AppServiceProvider extends ServiceProvider
         Brand::observe(BrandObserver::class);
         FormRequest::observe(FormRequestObserver::class);
         FormRequestHistory::observe(FormRequestHistoryObserver::class);
-        Voyager::addAction(CloseTicketBtn::class);
+        // Voyager::addAction(CloseTicketBtn::class);
     }
 }

@@ -39,6 +39,16 @@ class User extends \TCG\Voyager\Models\User
 
     public function scopeExcludeAdmin($query)
     {
-        return $query->whereRoleId(3);
+        return $query->where("role_id", "!=", 1);
+    }
+
+    public function scopeOnlyBrand($query)
+    {
+        return $query->where("role_id", 2);
+    }
+
+    public function scopeOnlyAccount($query)
+    {
+        return $query->where("role_id", 3);
     }
 }

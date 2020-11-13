@@ -5,3 +5,20 @@
 .mr-5 {
     margin-right: 5px;
 }
+
+.form-control {
+    color: #474c52;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #9ba5a8;
+}
+
+.panel-body .select2-selection {
+    border: 1px solid #9ba5a8;
+}
+
+.table>tfoot>tr>th,
+.table>thead>tr>th {
+    font-weight: bold;
+    color: #526069;
+}
