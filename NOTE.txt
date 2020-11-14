@@ -6,6 +6,7 @@ https://voyager-docs.devdojo.com/
 https://dev.to/fractalbit/change-the-height-of-the-rich-textbox-tinymce-in-laravel-voyager-1igd
 https://voyager-cheatsheet.ulties.com/
 https://marouanezizah.com/laravel-voyager-how-to-add-custom-action
+https://stackoverflow.com/questions/26178315/laravel-use-scope-in-models-with-relation
 
 php artisan voyager:install --with-dummy
 

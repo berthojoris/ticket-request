@@ -26,3 +26,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('/close-ticket/{id}', 'FormRequestController@closeTicket')->name('voyager.closeticket');
 });
+
+Route::get('/history', 'HomeController@history')->name('history');
+Route::get('/fr/{id}', 'HomeController@fr')->name('fr');

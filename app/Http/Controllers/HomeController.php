@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\FormRequest;
+use App\FormRequestHistory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +26,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function history()
+    {
+        return FormRequest::with('detail')->get();
+    }
+
+    public function fr($id)
+    {
+        return FormRequestHistory::with('formRequest')->whereId($id)->firstOrFail();
     }
 }

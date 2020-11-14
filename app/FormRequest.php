@@ -20,4 +20,9 @@ class FormRequest extends Model
             return $query->where("received_id", auth()->user()->id)->whereStatus('open');
         });
     }
+
+    public function detail()
+    {
+        return $this->hasMany('App\FormRequestHistory');
+    }
 }
