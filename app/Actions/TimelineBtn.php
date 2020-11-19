@@ -4,11 +4,11 @@ namespace App\Actions;
 
 use TCG\Voyager\Actions\AbstractAction;
 
-class CloseTicketBtn extends AbstractAction
+class TimelineBtn extends AbstractAction
 {
     public function getTitle()
     {
-        return 'Close Ticket';
+        return 'History';
     }
 
     public function getIcon()
@@ -24,12 +24,17 @@ class CloseTicketBtn extends AbstractAction
     public function getAttributes()
     {
         return [
-            'class' => 'btn btn-sm btn-success pull-right mr-5',
+            'class' => 'btn btn-sm btn-detail pull-right mr-5',
         ];
+    }
+
+    public function shouldActionDisplayOnDataType()
+    {
+        return $this->dataType->slug == 'form-requests';
     }
 
     public function getDefaultRoute()
     {
-        return route('voyager.closeticket', ['id' => $this->data->id]);
+        return route('detailRequest', ['id' => $this->data->id]);
     }
 }

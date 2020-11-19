@@ -7,12 +7,15 @@ https://dev.to/fractalbit/change-the-height-of-the-rich-textbox-tinymce-in-larav
 https://voyager-cheatsheet.ulties.com/
 https://marouanezizah.com/laravel-voyager-how-to-add-custom-action
 https://stackoverflow.com/questions/26178315/laravel-use-scope-in-models-with-relation
+https://medium.com/@jkorniak/simple-hierarchical-permissions-for-laravel-voyager-36fb22802c60
 
 php artisan voyager:install --with-dummy
 
 php artisan voyager:admin berthojoris@gmail.com --create
 
 Carbon::createFromFormat("d/m/Y", $formRequest->campaign_period_start)->format('Y-m-d')
+
+https://voyager-docs.devdojo.com/core-concepts/roles-and-permissions
 
 
 
@@ -31,3 +34,5 @@ Carbon::createFromFormat("d/m/Y", $formRequest->campaign_period_start)->format('
 }
 
 "scope": "excludeAdmin"
+
+php artisan config:cache

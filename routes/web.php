@@ -22,9 +22,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+// https://voyager-docs.devdojo.com/core-concepts/roles-and-permissions
+
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('/request-history/{id}', 'FormRequestController@detailRequest')->name('detailRequest');
     Voyager::routes();
-    Route::get('/close-ticket/{id}', 'FormRequestController@closeTicket')->name('voyager.closeticket');
 });
 
 Route::get('/history', 'HomeController@history')->name('history');

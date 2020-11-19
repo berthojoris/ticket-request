@@ -22,3 +22,20 @@
     font-weight: bold;
     color: #526069;
 }
+
+.btn-link,
+.checkbox-inline,
+.checkbox label,
+.radio-inline,
+.radio label,
+label {
+    font-weight: bold;
+}
+
+.voyager .btn.btn-detail {
+    background: #800040;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    opacity: .9;
+}

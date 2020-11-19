@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('browse_close-ticket', function ($user) {
+            return $user->hasPermission('browse_close-ticket');
+        });
+
+        Gate::define('edit_closeticket', function ($user) {
+            return $user->hasPermission('edit_closeticket');
+        });
+
+        Gate::define('browse_request_history', function ($user) {
+            return $user->hasPermission('browse_request_history');
+        });
     }
 }
