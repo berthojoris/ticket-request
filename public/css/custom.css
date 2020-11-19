@@ -39,3 +39,52 @@ label {
     border-radius: 3px;
     opacity: .9;
 }
+
+.tealColor {
+    background-color: #20c997;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.blueColor {
+    background-color: #3394ff;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.yelowColor {
+    background-color: #ffcf3e;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.grayColor {
+    background-color: #949ca3;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.redColor {
+    background-color: #e25c6a;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.cyanColor {
+    background-color: #1cc5dd;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.purpleColor {
+    background-color: #8059c8;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
