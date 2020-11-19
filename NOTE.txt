@@ -36,3 +36,11 @@ https://voyager-docs.devdojo.com/core-concepts/roles-and-permissions
 "scope": "excludeAdmin"
 
 php artisan config:cache
+
+
+- Tambahkan field bertipe FILE UPLOAD di tabel form request (migration)
+- Bikin form upload
+- Bikin soft delete
+- Bikin send email
+- Tambahkan field updated_by di tabel form request dan form request history
+- Bikin push notif

@@ -24,6 +24,11 @@
                         </div>
                         <div class="body">
                             <p>{!! $data->note !!}</p>
+                            @if (isDownload($data->document_attached) == true)
+                            <a class="{{ colorRand() }}" href="{{ Storage::disk(config('voyager.storage.disk'))->url(downloadLink($data->document_attached)) }}">
+                                Download {{ downloadFileName($data->document_attached) }}
+                            </a>
+                            @endif
                         </div>
                     </div>
                 @endforeach
