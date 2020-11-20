@@ -14,6 +14,15 @@
 <div class="page-content browse container-fluid">
     <div class="row">
         <div class="col-md-12">
+            @if (count($datas->detail) == 0)
+            <x-notify
+                title="This data has no detail from {{ $datas->senderName->name }}"
+                text=""
+                btnShow="show"
+                btnText="Back to list"
+                :btnLink="url('/admin/form-requests')"
+            />
+            @else
             <div class="timeline">
                 @foreach ($datas->detail as $data)
                     <div class="entry">
@@ -35,6 +44,7 @@
                     </div>
                 @endforeach
             </div>
+            @endif
         </div>
     </div>
 </div>

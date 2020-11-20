@@ -39,8 +39,8 @@ class CreateFormRequestsTable extends Migration
             $table->foreign('requested_id')->references('id')->on('users');
             $table->unsignedBigInteger("received_id");
             $table->foreign('received_id')->references('id')->on('users');
-            $table->enum("status", ["open", "closed"])->default("open");
-            $table->string("agency_brief");
+            $table->enum("status", ["OPEN", "CLOSED"])->default("OPEN");
+            $table->string("agency_brief")->nullable();
             $table->timestamps();
         });
     }

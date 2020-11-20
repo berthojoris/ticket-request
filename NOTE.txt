@@ -17,28 +17,40 @@ Carbon::createFromFormat("d/m/Y", $formRequest->campaign_period_start)->format('
 
 https://voyager-docs.devdojo.com/core-concepts/roles-and-permissions
 
-
-
-@extends('voyager::master')
-
-@section('page_title')
-
-@endsection
-
 {
     "validation": {
         "rule": [
             "required"
         ]
-    }
+    },
+    "tinymceOptions": {
+        "height": 200,
+        "min_height": 200
+    },
+    "scope": "excludeAdmin",
+    "options": {
+        "": "= Pilih =",
+        "accepted": "Accepted",
+        "on_progress": "On Progress",
+        "pending": "Pending",
+        "canceled": "Canceled",
+        "done": "Done",
+        "closed": "Closed"
+    },
+    "default": "option1"
 }
 
-"scope": "excludeAdmin"
-
-php artisan config:cache
+<x-notify
+    title="This data has no detail from {{ $datas->senderName->name }}"
+    text=""
+    btnShow="hide"
+    btnText="Back to list"
+    :btnLink="url('/admin/form-requests')"
+/>
 
 
 - Tambahkan field bertipe FILE UPLOAD di tabel form request (migration)
+- Bikin log untuk catat perubahan atau hapus data dari tabel. Set di model function boot()
 - Bikin form upload
 - Bikin soft delete
 - Bikin send email

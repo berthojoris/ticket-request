@@ -26,7 +26,14 @@ class FormRequestController extends Controller
     public function detailRequest($id)
     {
         $this->authorize('browse_request_history');
-        $datas = FormRequest::with('detail')->whereId($id)->latest()->first();
+        $datas = FormRequest::with(
+            [
+                'detail',
+                'senderName' => function ($query) {
+                    $query->select(['id', 'name']);
+                }
+            ]
+        )->whereId($id)->latest()->first();
         return view('vendor.voyager.form-requests.index', compact('datas'));
     }
 }
