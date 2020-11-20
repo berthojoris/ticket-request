@@ -1,12 +1,13 @@
 <?php
 
+use Carbon\Carbon;
+
 if (! function_exists('colorRand')) {
     function colorRand() {
         $array = [
             'tealColor',
             'blueColor',
             'yelowColor',
-            'grayColor',
             'redColor',
             'cyanColor',
             'purpleColor'
@@ -46,3 +47,10 @@ if (! function_exists('isDownload')) {
         }
     }
 }
+
+if (! function_exists('timeAgo')) {
+    function timeAgo($data) {
+        return Carbon::createFromTimeStamp(strtotime($data))->diffForHumans();
+    }
+}
+

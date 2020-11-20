@@ -5,7 +5,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="voyager-browser"></i> Progress - Project ID <label class="{{ colorRand() }}">{{ $datas->project_id }}</label>
+            <i class="voyager-browser"></i> Progress - Project ID {{ $datas->project_id }}
         </h1>
     </div>
 @stop
@@ -20,12 +20,14 @@
                         <div class="title">
                             <h3 class="{{ colorRand() }}">{{ $datas->project_name }}</h3>
                             <p>{{ $datas->program_name }}</p>
-                            <p>Updated ( {{ \Carbon\Carbon::createFromTimeStamp(strtotime($datas->created_at))->diffForHumans() }} ) </p>
+                            <p>Updated ( {{ timeAgo($datas->created_at) }} ) </p>
                         </div>
                         <div class="body">
                             <p>{!! $data->note !!}</p>
                             @if (isDownload($data->document_attached) == true)
-                            <a class="{{ colorRand() }}" href="{{ Storage::disk(config('voyager.storage.disk'))->url(downloadLink($data->document_attached)) }}">
+                            <a class="{{ colorRand() }}"
+                                target="_blank"
+                                href="{{ Storage::disk(config('voyager.storage.disk'))->url(downloadLink($data->document_attached)) }}">
                                 Download {{ downloadFileName($data->document_attached) }}
                             </a>
                             @endif
