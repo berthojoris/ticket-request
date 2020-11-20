@@ -58,3 +58,24 @@ if (!function_exists('timeAgo')) {
         return Carbon::createFromTimeStamp(strtotime($data))->diffForHumans();
     }
 }
+
+if (!function_exists('isAdmin')) {
+    function isAdmin()
+    {
+        return (auth()->user()->role_name == "admin") ? true : false;
+    }
+}
+
+if (!function_exists('isNotAdmin')) {
+    function isNotAdmin()
+    {
+        return (auth()->user()->role_name != "admin") ? true : false;
+    }
+}
+
+if (!function_exists('userID')) {
+    function userID()
+    {
+        return auth()->user()->id;
+    }
+}

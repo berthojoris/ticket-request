@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Log;
 use App\FormRequestHistory;
+use hisorange\BrowserDetect\Parser as Browser;
 
 class FormRequestHistoryObserver
 {
@@ -18,7 +20,19 @@ class FormRequestHistoryObserver
      */
     public function created(FormRequestHistory $formRequestHistory)
     {
-        //
+        $routeArray = app('request')->route()->getAction();
+        $controllerAction = class_basename($routeArray['controller']);
+        list($controller, $action) = explode('@', $controllerAction);
+
+        Log::create([
+            'controller' => $controller,
+            'function' => $action,
+            'current_url' => url()->full(),
+            'payload' => $formRequestHistory,
+            'browser' => Browser::browserName(),
+            'ip_address' => request()->ip(),
+            'user_id' => auth()->user()->id
+        ]);
     }
 
     /**
@@ -29,7 +43,19 @@ class FormRequestHistoryObserver
      */
     public function updated(FormRequestHistory $formRequestHistory)
     {
-        //
+        $routeArray = app('request')->route()->getAction();
+        $controllerAction = class_basename($routeArray['controller']);
+        list($controller, $action) = explode('@', $controllerAction);
+
+        Log::create([
+            'controller' => $controller,
+            'function' => $action,
+            'current_url' => url()->full(),
+            'payload' => $formRequestHistory,
+            'browser' => Browser::browserName(),
+            'ip_address' => request()->ip(),
+            'user_id' => auth()->user()->id
+        ]);
     }
 
     /**
@@ -40,7 +66,19 @@ class FormRequestHistoryObserver
      */
     public function deleted(FormRequestHistory $formRequestHistory)
     {
-        //
+        $routeArray = app('request')->route()->getAction();
+        $controllerAction = class_basename($routeArray['controller']);
+        list($controller, $action) = explode('@', $controllerAction);
+
+        Log::create([
+            'controller' => $controller,
+            'function' => $action,
+            'current_url' => url()->full(),
+            'payload' => $formRequestHistory,
+            'browser' => Browser::browserName(),
+            'ip_address' => request()->ip(),
+            'user_id' => auth()->user()->id
+        ]);
     }
 
     /**
@@ -51,7 +89,19 @@ class FormRequestHistoryObserver
      */
     public function restored(FormRequestHistory $formRequestHistory)
     {
-        //
+        $routeArray = app('request')->route()->getAction();
+        $controllerAction = class_basename($routeArray['controller']);
+        list($controller, $action) = explode('@', $controllerAction);
+
+        Log::create([
+            'controller' => $controller,
+            'function' => $action,
+            'current_url' => url()->full(),
+            'payload' => $formRequestHistory,
+            'browser' => Browser::browserName(),
+            'ip_address' => request()->ip(),
+            'user_id' => auth()->user()->id
+        ]);
     }
 
     /**
@@ -62,6 +112,18 @@ class FormRequestHistoryObserver
      */
     public function forceDeleted(FormRequestHistory $formRequestHistory)
     {
-        //
+        $routeArray = app('request')->route()->getAction();
+        $controllerAction = class_basename($routeArray['controller']);
+        list($controller, $action) = explode('@', $controllerAction);
+
+        Log::create([
+            'controller' => $controller,
+            'function' => $action,
+            'current_url' => url()->full(),
+            'payload' => $formRequestHistory,
+            'browser' => Browser::browserName(),
+            'ip_address' => request()->ip(),
+            'user_id' => auth()->user()->id
+        ]);
     }
 }

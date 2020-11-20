@@ -51,4 +51,14 @@ class User extends \TCG\Voyager\Models\User
     {
         return $query->where("role_id", 3);
     }
+
+    public function name()
+    {
+        return $this->belongsTo('App\Role', 'role_id', 'id');
+    }
+
+    public function getRoleNameAttribute()
+    {
+        return $this->name()->first()->name;
+    }
 }

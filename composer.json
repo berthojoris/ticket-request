@@ -15,6 +15,7 @@
         "fruitcake/laravel-cors": "^1.0",
         "gpressutto5/laravel-slack": "^2.1",
         "guzzlehttp/guzzle": "^6.3",
+        "hisorange/browser-detect": "^4.3",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^7.0",
         "laravel/socialite": "^5.1",

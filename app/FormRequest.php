@@ -8,17 +8,19 @@ class FormRequest extends Model
 {
     public function scopeReceiver($query)
     {
-        return $query->when(auth()->user()->id != 1, function ($query, $role) {
-            return $query->whereStatus('OPEN')->where("received_id", auth()->user()->id)
-                ->orWhere('requested_id', auth()->user()->id);
-        });
+        return $query->when(isNotAdmin(), function ($query) {
+            return $query->whereStatus('OPEN')
+                ->where("received_id", userID())
+                ->orWhere('requested_id', userID());
+        })->latest();
     }
 
     public function scopeOnlyReceived($query)
     {
-        return $query->when(auth()->user()->id != 1, function ($query, $role) {
-            return $query->where("received_id", auth()->user()->id)->whereStatus('OPEN')->latest();
-        });
+        return $query->when(isNotAdmin(), function ($query) {
+            return $query->where("received_id", userID())
+                ->whereStatus('OPEN');
+        })->latest();
     }
 
     public function detail()
@@ -36,11 +38,12 @@ class FormRequest extends Model
         return $this->belongsTo('App\User', 'received_id', 'id');
     }
 
-    public static function boot()
-    {
-        parent::boot();
-        static::deleting(function ($dataDetail) {
-            $dataDetail->detail()->delete();
-        });
-    }
+    // public static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::deleting(function ($dataDetail) {
+    //         $dataDetail->detail()->delete();
+    //     });
+    // }
 }

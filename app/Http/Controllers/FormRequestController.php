@@ -33,7 +33,13 @@ class FormRequestController extends Controller
                     $query->select(['id', 'name']);
                 }
             ]
-        )->whereId($id)->latest()->first();
-        return view('vendor.voyager.form-requests.index', compact('datas'));
+        )->whereId($id)->when(isAdmin(), function ($query) {
+            return $query->where('received_id', userID());
+        })->first();
+        if (empty($datas)) {
+            return view('vendor.voyager.form-requests.empty');
+        } else {
+            return view('vendor.voyager.form-requests.index', compact('datas'));
+        }
     }
 }
