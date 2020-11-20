@@ -8,6 +8,6 @@ class BrandUser extends Model
 {
     public function scopeExcludeAdmin($query)
     {
-        return $query->where("role_id", "!=", 1);
+        return $query->where("role_id", "!=", adminRoleID());
     }
 }

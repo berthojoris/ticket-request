@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Carbon\Carbon;
 
 if (!function_exists('colorRand')) {
@@ -77,5 +78,26 @@ if (!function_exists('userID')) {
     function userID()
     {
         return auth()->user()->id;
+    }
+}
+
+if (!function_exists('adminRoleID')) {
+    function adminRoleID()
+    {
+        return Role::whereName('admin')->firstOrFail()->id;
+    }
+}
+
+if (!function_exists('brandRoleID')) {
+    function brandRoleID()
+    {
+        return Role::whereName('brand')->firstOrFail()->id;
+    }
+}
+
+if (!function_exists('accountRoleID')) {
+    function accountRoleID()
+    {
+        return Role::whereName('account')->firstOrFail()->id;
     }
 }
